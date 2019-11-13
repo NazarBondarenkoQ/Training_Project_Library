@@ -1,6 +1,5 @@
 package nl.mycubes.library.controller;
 
-import nl.mycubes.library.domain.Author;
 import nl.mycubes.library.domain.Book;
 import nl.mycubes.library.repository.BookRepository;
 import org.springframework.web.bind.annotation.*;

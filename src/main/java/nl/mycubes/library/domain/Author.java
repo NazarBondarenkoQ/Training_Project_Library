@@ -2,10 +2,10 @@ package nl.mycubes.library.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -36,4 +36,7 @@ public class Author {
     @Column(name = "city", nullable = false)
     private String city;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "books_of_author")
+    private List<Book> books;
 }
