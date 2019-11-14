@@ -1,6 +1,5 @@
 package nl.mycubes.library.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,7 +7,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@AllArgsConstructor
 @Data
 public class Book {
 

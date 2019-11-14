@@ -2,26 +2,35 @@ package nl.mycubes.library.controller;
 
 import nl.mycubes.library.domain.Author;
 import nl.mycubes.library.repository.AuthorRepository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import java.util.Map;
 
-@RestController
-@RequestMapping(value = "/authors")
+@Controller
 public class AuthorController {
 
+    @Autowired
     private AuthorRepository authorRepository;
 
-    public AuthorController(AuthorRepository authorRepository) {
-        this.authorRepository = authorRepository;
+    @GetMapping(value = "/authors")
+    public String authorsHomePage() {
+        return "index";
     }
 
-    @GetMapping(value = "/all")
-    public List<Author> getAll() {
-        return authorRepository.findAll();
+    @RequestMapping("/authors/all")
+    public String getAll(Map<String, Object> model) {
+        model.put("authors",authorRepository.findAll());
+        model.put("test","LOL");
+        return "author";
     }
 
-    @PostMapping(value = "add")
+    @PostMapping(value = "authors/add")
     public void addAuthor(@RequestBody final Author author) {
         authorRepository.save(author);
     }
