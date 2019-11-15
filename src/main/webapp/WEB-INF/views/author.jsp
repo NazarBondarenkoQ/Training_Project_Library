@@ -32,6 +32,9 @@
     </tr>
 </c:forEach>
 </table>
+<div>
 <button onclick="previousLink()" class="previous">&laquo; Back to landing page</button>
+<button onclick="goToAddAuthorPage()" class="go_to_button"> Add a new author</button>
+</div>
 </body>
 </html>

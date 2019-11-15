@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
@@ -23,15 +22,23 @@ public class AuthorController {
         return "index";
     }
 
-    @RequestMapping("/authors/all")
+    @GetMapping("/authors/all")
     public String getAll(Map<String, Object> model) {
-        model.put("authors",authorRepository.findAll());
-        model.put("test","LOL");
+        model.put("authors", authorRepository.findAll());
         return "author";
     }
 
-    @PostMapping(value = "authors/add")
-    public void addAuthor(@RequestBody final Author author) {
+    @GetMapping(value = "authors/add")
+    public String addAuthor(Model model) {
+        Author author = new Author();
+        model.addAttribute("authorForm", author);
+        return "htmlform";
+    }
+
+    @PostMapping(value = "/save")
+    public String saveAuthor(@ModelAttribute("authorForm") Author author) {
         authorRepository.save(author);
+        authorRepository.findAll();
+        return "redirect:authors/all";
     }
 }

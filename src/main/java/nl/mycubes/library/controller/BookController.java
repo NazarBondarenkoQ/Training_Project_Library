@@ -30,5 +30,4 @@ public class BookController {
     public void addBook(@RequestBody final Book book) {
         bookRepository.save(book);
     }
-
 }
