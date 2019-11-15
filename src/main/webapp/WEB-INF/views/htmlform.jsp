@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Add author</title>
@@ -18,7 +18,9 @@
     <p><form:input path="birthDate" type="text" placeholder="Date of Birth"/></p>
     <p><form:input path="country" type="text" placeholder="Country"/></p>
     <p><form:input path="city" type="text" placeholder="City"/></p>
-    <p><button class="add_author_form_button" type="submit">Add author</button></p>
+    <p>
+        <button class="add_author_form_button" type="submit">Add author</button>
+    </p>
 </form:form>
 </body>
 </html>

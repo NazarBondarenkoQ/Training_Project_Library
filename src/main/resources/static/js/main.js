@@ -17,3 +17,7 @@ function previousLinkBooks() {
 function goToAddAuthorPage() {
     window.location.replace("/authors/add")
 }
+
+function goToAddBookPage() {
+    window.location.replace("/books/add")
+}

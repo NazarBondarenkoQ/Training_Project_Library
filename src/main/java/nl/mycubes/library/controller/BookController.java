@@ -26,8 +26,23 @@ public class BookController {
         return "book";
     }
 
-    @PostMapping(value = "/books/add")
-    public void addBook(@RequestBody final Book book) {
-        bookRepository.save(book);
+    @GetMapping(value = "/books/add")
+    public String addBook(Model model) {
+        Book book = new Book();
+        model.addAttribute("bookForm", book);
+        return "bookform";
     }
+
+    @PostMapping(value = "test")
+    public String saveBook(@ModelAttribute("bookForm") Book book) {
+        bookRepository.save(book);
+        bookRepository.findAll();
+        return "redirect:books/all";
+    }
+
+//
+//    @PostMapping(value = "/books/add")
+//    public void addBook(@RequestBody final Book book) {
+//        bookRepository.save(book);
+//    }
 }
