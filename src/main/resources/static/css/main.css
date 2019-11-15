@@ -11,3 +11,49 @@
 .button:hover {
     background-color: deepskyblue;
 }
+
+.button1 {
+    background-color: sandybrown;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button1:hover {
+    background-color: coral;
+}
+
+.previous {
+    background-color: cornsilk;
+    color: black;
+    border: aqua;
+    border-radius: 10px;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.previous:hover {
+    background-color: peachpuff;
+    cursor: pointer;
+}
+
+.previousBook {
+    background-color: cornsilk;
+    color: black;
+    border: aqua;
+    border-radius: 10px;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.previousBook:hover {
+    background-color: peachpuff;
+    cursor: pointer;
+}

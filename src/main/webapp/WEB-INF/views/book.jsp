@@ -6,6 +6,8 @@
 <html>
 <head>
     <title>List of all authors</title>
+    <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/main.css' />"/>
 </head>
 <body>
 <table border="5", style="border-style: double" width="85%">
@@ -26,5 +28,6 @@
         </tr>
     </c:forEach>
 </table>
+<button onclick="previousLinkBooks()" class="previousBook">&laquo; Back to landing page</button>
 </body>
 </html>
