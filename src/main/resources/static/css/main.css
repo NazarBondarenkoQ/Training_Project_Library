@@ -6,6 +6,8 @@
     text-align: center;
     font-size: 16px;
     cursor: pointer;
+    width: 300px;
+    height: 40px;
 }
 
 .button:hover {
@@ -20,10 +22,44 @@
     text-align: center;
     font-size: 16px;
     cursor: pointer;
+    width: 300px;
+    height: 40px;
 }
 
 .button1:hover {
     background-color: coral;
+}
+
+.buttonToBooks {
+    background-color: sandybrown;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+}
+
+.buttonToBooks:hover {
+    background-color: coral;
+}
+
+.buttonToBooks1 {
+    background-color: lightblue;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+}
+
+.buttonToBooks1:hover {
+    background-color: deepskyblue;
 }
 
 .previous {
@@ -56,4 +92,10 @@
 .previousBook:hover {
     background-color: peachpuff;
     cursor: pointer;
+}
+
+.divider{
+    width:10px;
+    height:auto;
+    display:inline-block;
 }
