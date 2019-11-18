@@ -1,18 +1,23 @@
 package nl.mycubes.library.controller;
 
 import nl.mycubes.library.domain.Book;
+import nl.mycubes.library.repository.AuthorRepository;
 import nl.mycubes.library.repository.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BookController {
 
     private BookRepository bookRepository;
+    private AuthorRepository authorRepository;
 
-    public BookController(BookRepository bookRepository) {
+    public BookController(BookRepository bookRepository, AuthorRepository authorRepository) {
         this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
     }
 
     @GetMapping(value = "/books")
@@ -23,6 +28,7 @@ public class BookController {
     @GetMapping(value = "/books/all")
     public String getAll(Model model) {
         model.addAttribute("books",bookRepository.findAll());
+        model.addAttribute("authors", authorRepository.findAll());
         return "book";
     }
 

@@ -23,11 +23,12 @@ public class Book {
     private String name;
 
     @Column(name = "release_date")
-    private LocalDate releaseDate;
+    private String releaseDate;
 
     @Column(name = "circulation")
     private Integer circulation;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "books")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_authors", referencedColumnName = "id")
     private List<Author> authors;
 }

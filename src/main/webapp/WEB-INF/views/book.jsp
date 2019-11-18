@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Release Date</th>
         <th>Circulation</th>
+        <th>Authors</th>
     </tr>
     </thead>
     <c:forEach items="${books}" var="book" varStatus="status">
@@ -25,12 +26,28 @@
             <td><c:out value="${book.name}"/></td>
             <td><c:out value="${book.releaseDate}"/></td>
             <td><c:out value="${book.circulation}"/></td>
+            <td><c:out value="${book.authors}"/></td>
         </tr>
     </c:forEach>
 </table>
+
 <div>
     <button onclick="previousLinkBooks()" class="previousBook">&laquo; Back to landing page</button>
     <button onclick="goToAddBookPage()" class="go_to_button"> Add a new book</button>
+    <button id="btn" onclick="openTest()" class="go_to_button"> Add an author to the book</button>
+    <div id="add_author_form" style="display: none" >
+        <select name="books" multiple>
+            <c:forEach items="${books}" var="book">
+                <option> Book's title: "${book.name}"</option>
+            </c:forEach>
+        </select>
+        <select name="authors" multiple>
+            <c:forEach items="${authors}" var="author">
+                <option> Author's name: "${author.firstName} ${author.lastName}"</option>
+            </c:forEach>
+        </select>
+        <input type="submit" value="Add author" formmethod="post" >
+    </div>
 </div>
 </body>
 </html>

@@ -21,3 +21,11 @@ function goToAddAuthorPage() {
 function goToAddBookPage() {
     window.location.replace("/books/add")
 }
+
+document.getElementById("add_author_form").style.display ="none";
+
+function openTest() {
+    document.getElementById("add_author_form").style.display = "block";
+}
+
+document.getElementById('btn').addEventListener('click', openTest);

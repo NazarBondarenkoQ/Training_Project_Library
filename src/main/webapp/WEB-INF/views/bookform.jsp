@@ -13,10 +13,12 @@
 </head>
 <body>
 <form:form cssClass="form-style-9" class="form1" method="post" modelAttribute="bookForm" action="/test" id="form1">
-    <p><form:input path="name" type="text" placeholder="Book Title"/></p>
-    <p><form:input path="releaseDate" type="text" placeholder="Release Date"/></p>
-    <p><form:input path="circulation" type="text" placeholder="Circulation"/></p>
+<div> <input type="text" name="name" placeholder="Title" value="${bookForm.name}"></div>
+<div><input type="date" name="releaseDate" placeholder="Release Date" value=<fmt:formatDate pattern="dd/MM/yyyy"
+value="${bookForm.releaseDate}"/> ></div>
+<div><input type="text" name="ciruclation" placeholder="Count of Copies" value="${bookForm.circulation}"></div>
+<div>
     <button class="add_author_form_button" type="submit">Add Book</button>
-</form:form>
+    </form:form>
 </body>
 </html>

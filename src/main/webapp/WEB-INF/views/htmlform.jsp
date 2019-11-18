@@ -15,7 +15,7 @@
 <form:form class="form" cssClass="form-style-9" method="post" modelAttribute="authorForm" action="/save" id="form">
     <p><form:input path="firstName" type="text" placeholder="First Name"/></p>
     <p><form:input path="lastName" type="text" placeholder="Last Name"/></p>
-    <p><form:input path="birthDate" type="text" placeholder="Date of Birth"/></p>
+    <p><form:input path="birthDate" type="date" placeholder="Date of Birth"/></p>
     <p><form:input path="country" type="text" placeholder="Country"/></p>
     <p><form:input path="city" type="text" placeholder="City"/></p>
     <p>

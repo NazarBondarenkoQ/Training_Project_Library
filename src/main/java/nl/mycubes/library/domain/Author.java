@@ -3,7 +3,6 @@ package nl.mycubes.library.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -26,7 +25,7 @@ public class Author {
     private String lastName;
 
     @Column(name = "date_of_birth")
-    private LocalDate birthDate;
+    private String birthDate;
 
     @Column(name = "country", nullable = false)
     private String country;
@@ -34,7 +33,6 @@ public class Author {
     @Column(name = "city", nullable = false)
     private String city;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "books_of_author")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "authors")
     private List<Book> books;
 }
