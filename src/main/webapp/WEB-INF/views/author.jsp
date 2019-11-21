@@ -19,6 +19,8 @@
         <th>Birthday</th>
         <th>Country</th>
         <th>City</th>
+        <th>Books</th>
+        <th>Action</th>
     </tr>
     </thead>
     <c:forEach items="${authors}" var="author" varStatus="status">
@@ -29,6 +31,13 @@
             <td><c:out value="${author.birthDate}"/></td>
             <td><c:out value="${author.country}"/></td>
             <td><c:out value="${author.city}"/></td>
+            <td>
+            <c:if test="${author.books.size() > 0}">
+                <c:forEach items="${author.books}" varStatus="book_index">
+                <c:set var="books" value="${author.books.get(book_index.index).name}"/><c:out value="${books}, "/>
+                </c:forEach></c:if>
+            </td>
+            <td><button onclick="goToEditAuthorPage(${author.id})">Edit</button></td>
         </tr>
     </c:forEach>
 </table>

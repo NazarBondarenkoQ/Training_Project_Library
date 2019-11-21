@@ -1,21 +1,25 @@
 package nl.mycubes.library.controller;
 
 import nl.mycubes.library.domain.Author;
+import nl.mycubes.library.payload.AjaxObject;
 import nl.mycubes.library.repository.AuthorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import nl.mycubes.library.repository.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @Controller
 public class AuthorController {
 
-    @Autowired
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
+    private final BookRepository bookRepository;
+
+    public AuthorController(AuthorRepository authorRepository, BookRepository bookRepository) {
+        this.authorRepository = authorRepository;
+        this.bookRepository = bookRepository;
+    }
 
     @GetMapping(value = "/authors")
     public String authorsHomePage() {
@@ -35,10 +39,17 @@ public class AuthorController {
         return "htmlform";
     }
 
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/authors/save")
     public String saveAuthor(@ModelAttribute("authorForm") Author author) {
         authorRepository.save(author);
-        authorRepository.findAll();
-        return "redirect:authors/all";
+        return "redirect:all";
     }
+
+    @GetMapping(value = "/authors/edit/{id}")
+    public String editAuthor(@PathVariable Integer id, Model model) {
+        model.addAttribute("authorForm", authorRepository.findById(id).get());
+        model.addAttribute("books", bookRepository.findAll());
+        return "editAuthor";
+    }
+
 }

@@ -12,13 +12,26 @@
     <h1>Add book to the book list: </h1>
 </head>
 <body>
-<form:form cssClass="form-style-9" class="form1" method="post" modelAttribute="bookForm" action="/test" id="form1">
-<div> <input type="text" name="name" placeholder="Title" value="${bookForm.name}"></div>
-<div><input type="date" name="releaseDate" placeholder="Release Date" value=<fmt:formatDate pattern="dd/MM/yyyy"
-value="${bookForm.releaseDate}"/> ></div>
-<div><input type="text" name="ciruclation" placeholder="Count of Copies" value="${bookForm.circulation}"></div>
-<div>
-    <button class="add_author_form_button" type="submit">Add Book</button>
+    <form:form cssClass="form-style-9" class="form1" method="post" modelAttribute="bookForm" action="save" id="form1">
+        <div style="-moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box;">
+            <input type="text" width="10%" name="name" placeholder="Title" value="${bookForm.name}">
+        </div>
+        <div>
+            <input type="date" name="releaseDate" placeholder="Release Date" value="${bookForm.releaseDate}">
+        </div>
+        <div style="-moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box;">
+            <input type="text" name="circulation" placeholder="Count of Copies" value="${bookForm.circulation}">
+        </div>
+        <select name="authors" multiple>
+            <c:forEach items="${authors}" var="author">
+                <option value="${author.id}"> Author's name: "${author.firstName} ${author.lastName}"</option>
+            </c:forEach>
+        </select>
+            <p><button class="add_author_form_button" type="submit">Add Book</button></p>
     </form:form>
 </body>
 </html>

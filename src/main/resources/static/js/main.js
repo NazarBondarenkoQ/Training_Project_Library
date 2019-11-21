@@ -22,10 +22,10 @@ function goToAddBookPage() {
     window.location.replace("/books/add")
 }
 
-document.getElementById("add_author_form").style.display ="none";
-
-function openTest() {
-    document.getElementById("add_author_form").style.display = "block";
+function goToEditBookPage(id) {
+    window.location="/books/edit/" + id;
 }
 
-document.getElementById('btn').addEventListener('click', openTest);
+function goToEditAuthorPage(id) {
+    window.location="/authors/edit/" + id;
+}

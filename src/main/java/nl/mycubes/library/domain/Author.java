@@ -1,12 +1,17 @@
 package nl.mycubes.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
+@EqualsAndHashCode(exclude = "books")
+@ToString(exclude = "books")
 public class Author {
 
     public Author() {
@@ -33,6 +38,7 @@ public class Author {
     @Column(name = "city", nullable = false)
     private String city;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "authors")
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.REMOVE}, mappedBy = "authors")
     private List<Book> books;
 }
